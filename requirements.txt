@@ -18,3 +18,11 @@ selenium
 webdriver-manager
 scrapy-splash
 scikit-learn
+
+tqdm==2.2.3
+torch
+torchvision
+torchaudio
+graphviz
+torchviz
+tensorboard
