@@ -161,6 +161,7 @@ cython_debug/
 .ipynb_checkpoints
 source/
 *.xml
-#*data
-#*.gz
-#*-ubyte
+*data
+*.gz
+*-ubyte
+*.webp
