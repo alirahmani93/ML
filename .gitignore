@@ -163,5 +163,6 @@ source/
 *.xml
 *data
 *.gz
+*.zip
 *-ubyte
 *.webp
