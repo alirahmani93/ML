@@ -20,9 +20,9 @@ transform_test = transforms.Compose([
 ])
 
 # Load the dataset
-train_dataset = datasets.ImageFolder('../../data/keras1.gz', transform=transform_train)
-test_dataset = datasets.ImageFolder('../../data/keras1.gz', transform=transform_test)
-
+folder_path: str = '../../../datasets/kagglecatsanddogs_5340/PetImages/'
+train_dataset = datasets.ImageFolder(folder_path, transform=transform_train)
+test_dataset = datasets.ImageFolder(folder_path, transform=transform_test)
 
 
 # Define the model architecture
@@ -70,7 +70,7 @@ class Net(nn.Module):
         x = self.bn4(x)
         x = self.relu4(x)
         x = self.pool4(x)
-        x = nn.Flatten(x)
+        x = x.view(-1, 512 * 7 * 7)
         x = self.fc1(x)
         x = self.relu5(x)
         x = self.dropout1(x)
@@ -97,8 +97,11 @@ for epoch in range(10):
     for i, data in enumerate(train_loader, 0):
 
         inputs, labels = data
+        print(labels.size())
+        print(inputs.size())
         optimizer.zero_grad()
         outputs = net(inputs)
+        print(outputs.size())
         loss = criterion(outputs, labels)
         loss.backward()
         optimizer.step()

@@ -21,8 +21,8 @@ transform_test = transforms.Compose([
 ])
 
 # Load the dataset
-train_dataset = datasets.ImageFolder('../../data/keras1.gz', transform=transform_train)
-test_dataset = datasets.ImageFolder('../../data/keras1.gz', transform=transform_test)
+train_dataset = datasets.ImageFolder('../../../datasets/kagglecatsanddogs_5340.zip', transform=transform_train)
+test_dataset = datasets.ImageFolder('../../../datasets/kagglecatsanddogs_5340.zip', transform=transform_test)
 
 # Load the pre-trained EfficientNet model
 model = EfficientNet.from_pretrained('efficientnet-b0')
